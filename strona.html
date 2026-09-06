@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dla Ciebie, Vanessa ❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background: linear-gradient(135deg, #fff9fa 0%, #ffe6eb 30%, #ffc1e3 60%, #ffffff 100%);
+            min-height: 100vh;
+            color: #4a2e2e;
+            overflow-x: hidden;
+            font-size: 18px;
+            cursor: default;
+        }
+
+        .heart {
+            position: fixed;
+            color: #e91e63;
+            font-size: 2em;
+            animation: float 3s ease-in-out infinite;
+            z-index: 9999;
+            text-shadow: 0 0 15px rgba(233, 30, 99, 0.6);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.6; }
+            50% { transform: translateY(-50px) rotate(15deg); opacity: 1; }
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            10%, 30% { transform: scale(1.12); }
+            20%, 40% { transform: scale(1.08); }
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 50px 30px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            text-align: center;
+            padding: 70px 30px;
+            background: linear-gradient(135deg, #ff6b9d 0%, #e91e63 45%, #ffc1e3 100%);
+            border-radius: 0 0 100px 100px;
+            margin-bottom: 50px;
+            box-shadow: 0 25px 70px rgba(233, 30, 99, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 60%);
+            animation: shimmer 10s linear infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        header h1 {
+            font-family: 'Pacifico', cursive;
+            font-size: clamp(2.8em, 10vw, 5em);
+            color: #ffffff;
+            text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
+            animation: heartbeat 1.8s ease-in-out infinite, glow 3s ease-in-out infinite;
+            position: relative;
+            z-index: 1;
+        }
+
+        header p {
+            font-size: clamp(1.2em, 5vw, 1.6em);
+            color: #ffffff;
+            margin-top: 20px;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+            font-weight: 500;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .section {
+            background: white;
+            border-radius: 60px;
+            padding: 55px;
+            margin-bottom: 40px;
+            box-shadow: 0 20px 70px rgba(233, 30, 99, 0.18);
+            transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 3px solid transparent;
+            position: relative;
+        }
+
+        .section:hover {
+            transform: translateY(-15px) scale(1.03);
+            box-shadow: 0 30px 90px rgba(233, 30, 99, 0.35);
+            border-color: #ffc1e3;
+        }
+
+        .section::before {
+            content: '💕';
+            position: absolute;
+            top: -35px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2.5em;
+            opacity: 0;
+            transition: all 0.5s ease;
+        }
+
+        .section:hover::before {
+            opacity: 1;
+            top: -45px;
+            animation: bounce 1s ease infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .section h2 {
+            font-family: 'Pacifico', cursive;
+            font-size: clamp(2em, 8vw, 3em);
+            color: #e91e63;
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+            animation: float 5s ease-in-out infinite;
+        }
+
+        .section h2::after {
+            content: '';
+            display: block;
+            width: 120px;
+            height: 6px;
+            background: linear-gradient(90deg, transparent, #e91e63, transparent);
+            margin: 25px auto 0;
+            border-radius: 3px;
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        .content-text {
+            font-size: clamp(1.2em, 4vw, 1.5em);
+            line-height: 2;
+            color: #4a2e2e;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .content-list ul {
+            list-style: none;
+            margin-top: 25px;
+        }
+
+        .content-list li {
+            margin: 18px 0;
+            padding-left: 50px;
+            font-size: clamp(1.2em, 3vw, 1.4em);
+            position: relative;
+            color: #4a2e2e;
+            font-weight: 500;
+        }
+
+        .content-list li::before {
+            content: '❤️';
+            position: absolute;
+            left: 0;
+            font-size: 1.5em;
+            animation: heartbeat 2s ease-in-out infinite;
+        }
+
+        .highlight-text {
+            background: linear-gradient(120deg, transparent 0%, rgba(233, 30, 99, 0.15) 50%, transparent 100%);
+            padding: 20px 30px;
+            border-radius: 30px;
+            margin: 30px auto;
+            display: inline-block;
+            animation: glow 4s ease-in-out infinite;
+        }
+
+        .quote {
+            font-family: 'Pacifico', cursive;
+            font-size: clamp(1.6em, 6vw, 2.2em);
+            color: #e91e63;
+            text-align: center;
+            padding: 50px;
+            margin: 50px auto;
+            max-width: 80%;
+            background: linear-gradient(135deg, rgba(233, 30, 99, 0.1), rgba(255, 193, 227, 0.3));
+            border-radius: 40px;
+            position: relative;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .quote::before {
+            content: '"';
+            font-size: 5em;
+            position: absolute;
+            top: -30px;
+            left: 25px;
+            color: rgba(233, 30, 99, 0.3);
+            animation: float 4s ease-in-out infinite reverse;
+        }
+
+        footer {
+            text-align: center;
+            padding: 50px;
+            background: linear-gradient(135deg, #e91e63 0%, #ff6b9d 50%, #f48fb1 100%);
+            color: white;
+            font-size: 1.2em;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '❤️❤️❤️';
+            position: absolute;
+            top: 30px;
+            left: -40px;
+            font-size: 3.5em;
+            opacity: 0.3;
+            animation: float 5s ease-in-out infinite;
+        }
+
+        /* Tło z serduszkami */
+        .bg-hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .bg-heart {
+            position: absolute;
+            color: rgba(233, 30, 99, 0.1);
+            font-size: 3em;
+            animation: bgFloat 20s linear infinite;
+        }
+
+        @keyframes bgFloat {
+            0% { transform: translateX(-100%) translateY(0) rotate(0deg); }
+            100% { transform: translateX(110%) translateY(50px) rotate(360deg); }
+        }
+
+        /* Animacja myszką */
+        body:hover .container {
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewport="0 0 32 32" style="fill:%23e91e63;font-weight:bold"><text y="5">💕</text></svg>'), auto;
+        }
+
+        /* Serduszka po kliknięciu */
+        .click-heart {
+            position: fixed;
+            color: #e91e63;
+            font-size: 2em;
+            pointer-events: none;
+            animation: cascadeHeart 1.5s ease-in-out forwards;
+            z-index: 999;
+        }
+
+        @keyframes cascadeHeart {
+            0% { transform: translateY(0) scale(1); opacity: 1; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-250px) scale(0.4); opacity: 0; }
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5em;
+            }
+
+            .section {
+                padding: 40px 30px;
+                border-radius: 50px;
+            }
+
+            .section h2 {
+                font-size: 2em;
+            }
+        }
+
+        /* Wyzwalacze easter eggów */
+        .trigger-zone {
+            position: fixed;
+            opacity: 0;
+            z-index: 9998;
+            pointer-events: none;
+        }
+
+        #heart1 { top: 20%; left: 25%; width: 150px; height: 150px; }
+        #heart2 { top: 65%; left: 70%; width: 180px; height: 180px; }
+        #heart3 { top: 30%; left: 75%; width: 140px; height: 140px; }
+        #heart4 { top: 75%; left: 25%; width: 160px; height: 160px; }
+
+        /* Galerka zdjęć */
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 40px auto;
+            max-width: 900px;
+        }
+
+        .photo-card {
+            position: relative;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 15px 50px rgba(233, 30, 99, 0.3);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 5px solid transparent;
+        }
+
+        .photo-card:hover {
+            transform: scale(1.05) rotate(-2deg);
+            box-shadow: 0 20px 70px rgba(233, 30, 99, 0.5);
+            border-color: #ffc1e3;
+        }
+
+        .photo-card:nth-child(odd):hover {
+            transform: scale(1.05) rotate(2deg);
+        }
+
+        .photo-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.6s ease;
+        }
+
+        .photo-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .photo-number {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(135deg, #e91e63, #ff6b9d);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 700;
+            box-shadow: 0 5px 15px rgba(233, 30, 99, 0.4);
+        }
+
+        .photo-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 25px;
+            background: linear-gradient(transparent, rgba(233, 30, 99, 0.95));
+            color: white;
+            font-size: 1em;
+            font-weight: 600;
+            opacity: 0;
+            transition: all 0.4s ease;
+        }
+
+        .photo-card:hover .photo-caption {
+            opacity: 1;
+            bottom: 25px;
+        }
+
+        /* Animacja autoplay music */
+        .music-indicator {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #e91e63, #ff6b9d);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-size: 1em;
+            font-weight: 600;
+            box-shadow: 0 5px 20px rgba(233, 30, 99, 0.4);
+            z-index: 100;
+        }
+
+        .music-indicator.playing {
+            background: #fff;
+            color: #e91e63;
+            box-shadow: 0 5px 20px rgba(233, 30, 99, 0.3);
+            animation: none;
+        }
+
+        .music-indicator::before {
+            content: '🎵';
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-hearts" id="bg-hearts"></div>
+
+    <!-- Easter Egg Triggers -->
+    <div id="heart1" class="trigger-zone" onclick="activateEaster('💕', 'Kochana Vanessa, gdzieś tutaj ukryłem moje serce... ❤️')"></div>
+    <div id="heart2" class="trigger-zone" onclick="activateEaster('🌸', 'Twoje uśmiech rozświetla cały mój świat! ✨')"></div>
+    <div id="heart3" class="trigger-zone" onclick="activateEaster('💝', 'Dzięki Tobie każdy dzień jest magiczny! 💫')"></div>
+    <div id="heart4" class="trigger-zone" onclick="activateEaster('✨', 'Jesteś moją największą przygodą! 🎉')"></div>
+
+    <header>
+        <h1>Dla Ciebie, Vanessa ❤️</h1>
+        <p>Nasza piękna historia...</p>
+    </header>
+
+    <!-- Galerka zdjęć Vanessy -->
+    <section class="section" style="margin-bottom: 20px; border-radius: 40px;">
+        <div style="text-align: center;">
+            <h2 style="font-size: clamp(1.8em, 6vw, 2.5em); margin-bottom: 15px;">💖 Moje Ukochane 💖</h2>
+            <p style="font-size: 1.3em; color: #6b4f4f; margin-bottom: 30px;">Każde zdjęcie ukazuje inną stronę naszej miłości...</p>
+        </div>
+        
+        <div class="photo-gallery">
+            <div class="photo-card">
+                <img src="photo 1.jpg" alt="Vanessa 1 - Uśmiech aniołka">
+                <div class="photo-number">01</div>
+                <div class="photo-caption">Uśmiech aniołka ✨</div>
+            </div>
+            
+            <div class="photo-card">
+                <img src="photo 2.jpg" alt="Vanessa 2 - Kręcone włosy">
+                <div class="photo-number">02</div>
+                <div class="photo-caption">Moje najpiękniejsze włosy 🌸</div>
+            </div>
+            
+            <div class="photo-card">
+                <img src="photo 3.jpg" alt="Vanessa 3 - Pocałunek">
+                <div class="photo-number">03</div>
+                <div class="photo-caption">Pocałunek w usteczka 💕</div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container content-wrapper">
+        <!-- Sekcja: Kim jest dla mnie -->
+        <section class="section">
+            <h2>Kim jesteś dla mnie? 💕</h2>
+            <ul class="content-list">
+                <li>Jesteś moją największą miłością i źródłem nieograniczonego szczęścia.</li>
+                <li>Moje serce bije tylko dla Ciebie z wielką pasją i czułością.</li>
+                <li>Z Tobą odkrywam każdą chwilę życia w zupełnie nowy, magiczny sposób.</li>
+                <li>Jesteś moim aniołem stróżem, który zawsze jest przy mnie, nawet gdy nie widzę.</li>
+                <li>Każde Twoje uśmiech rozpromienia mój dzień jak nic inne na świecie nie potrafi.</li>
+            </ul>
+        </section>
+
+        <!-- Sekcja: Za co ją kocham -->
+        <section class="section">
+            <h2>Za co Cię kocham? 🌹</h2>
+            <ul class="content-list">
+                <li>Kocham Twój piękny uśmiech, który oświetla każdy mój dzień jak słońce.</li>
+                <li>Cenię Twoją niesamowitą dobrotę i łagodność wobec innych ludzi.</li>
+                <li>Oceniłem Twoje niezwykłe poczucie humoru, które zawsze mnie bawi do rozpuku.</li>
+                <li>Mam wielki szacunek dla Twojego wsparcia w każdej sytuacji – jesteś moją siłą.</li>
+                <li>Kocham to jak dbasz o mnie i sprawiaj że czuję się najbardziej kochany na świecie.</li>
+                <li>Mam ogromną podziw dla Twojej mądrości, inteligencji i wszystkich Twoich talentów.</li>
+            </ul>
+        </section>
+
+        <!-- Sekcja: Co dla mnie znaczenie -->
+        <section class="section">
+            <h2>Czego mi z Tobą znaczyć? ✨</h2>
+            <p class="content-text">Jesteś dla mnie nie tylko miłością, ale także:</p>
+            <div class="highlight-text" style="margin-top: 30px;">
+                <ul class="content-list">
+                    <li>Moim domem – gdziekolwiek jesteś, tam jestem ja.</li>
+                    <li>Moim przewodnikiem – prowadzisz mnie do lepszej wersji siebie.</li>
+                    <li>Moim najpiękniejszym marzeniem – o Tobie marzę codziennie.</li>
+                    <li>Moją inspiracją – dzięki Tobie staję się lepszą osobą każdego dnia.</li>
+                    <li>Moim bezpiecznym portem – gdzie mogę być sobą, bez żadnej maski.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Sekcja: Jak się poznaliśmy -->
+        <section class="section">
+            <h2>Kiedy i jak się poznaliśmy? 💑</h2>
+            <p class="content-text">To był jeden z tych dni, które nigdy nie zapomnę...</p>
+            <div class="highlight-text" style="margin-top: 30px;">
+                <ul class="content-list">
+                    <li>Pierwszy raz zobaczyłem Twój uśmiech i moje serce pobiło szybciej jak nigdy.</li>
+                    <li>Każda chwila od tamtej chwili stała się dla mnie wyjątkowa i magiczna.</li>
+                    <li>Z każdym dniem bardziej kocham Cię, a Ty jesteś kimś jeszcze ważniejszym.</li>
+                    <li>Nasza miłość rośnie z każdą godziną jak najpiękniejszy kwiat pod słońcem.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Cytat -->
+        <div class="quote">
+            Miłość to nie tylko spojrzenie na siebie, ale widzenie w drugim...
+            <br><span style="font-family: 'Quicksand', sans-serif; font-size: 1em;">— Antoine de Saint-Exupéry</span>
+        </div>
+    </div>
+
+    <footer>
+        <p>Miłosna historia Twojej Vanessa ❤️</p>
+        <p>Zawsze będę przy Tobie, Kochanie ✨</p>
+        <p style="margin-top: 20px; font-size: clamp(1.5em, 6vw, 3em);">❤️❤️❤️</p>
+    </footer>
+
+    <!-- Muzyka i Easter Eggs -->
+    <div id="music-indicator" class="music-indicator">🎵 Kochała mnie - kliknij aby włączyć muzykę! 🎶</div>
+    
+    <script>
+        // 🎵 Muzyka w tle - romatyczna piosenka o miłości z lokalnego pliku
+        const audio = new Audio('music.mp3');
+        audio.volume = 0.4; // Głośność 40%
+        audio.loop = true; // Pętla piosenki
+        
+        let musicStarted = false;
+        
+        // Funkcja do startu muzyki po kliknięciu
+        function playMusic() {
+            if (!musicStarted) {
+                audio.play().then(() => {
+                    console.log('🎵 Muzyka rozpoczęta!');
+                    const indicator = document.getElementById('music-indicator');
+                    indicator.classList.add('playing');
+                    indicator.textContent = '🎵 Kochała mnie - gra w tle! ❤️';
+                    musicStarted = true;
+                }).catch(e => {
+                    console.log('⚠️', e.message);
+                    const indicator = document.getElementById('music-indicator');
+                    indicator.classList.add('playing');
+                    indicator.textContent = '🎵 Kliknij ponownie aby włączyć muzykę 🎶';
+                });
+            }
+        }
+
+        // Spróbuj odtworzyć muzykę natychmiast po ładowaniu (na niektórych komputerach działa)
+        setTimeout(() => {
+            if (typeof navigator !== 'undefined' && 
+                navigator.userAgent.toLowerCase().includes('chrome')) {
+                playMusic();
+            }
+        }, 500);
+        
+        // Start muzyki po pierwszym kliknięciu w dowolnym miejscu na stronie
+        document.addEventListener('click', () => {
+            if (!musicStarted) {
+                playMusic();
+            } else {
+                // Jeśli muzka się zatrzymała, odtwórz ponownie
+                if (audio.paused && !audio.ended) {
+                    audio.play().then(() => {
+                        console.log('🎵 Muzyka ponownie odtwarzana!');
+                    });
+                }
+            }
+        }, true); // true = useCapture aby wychwycić wszystkie kliknięcia
+
+        // Generowanie unoszących się serduszek w tle
+        function createBGBGHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('bg-heart');
+            heart.innerHTML = ['❤️', '💕', '🌸', '✨', '💝'][Math.floor(Math.random() * 5)];
+            
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.top = Math.random() * 100 + '%';
+            heart.style.fontSize = (3 + Math.random() * 4) + 'em';
+            heart.style.animationDuration = (20 + Math.random() * 20) + 's';
+            
+            document.getElementById('bg-hearts').appendChild(heart);
+            
+            setTimeout(() => {
+                heart.remove();
+            }, 45000);
+        }
+        
+        setInterval(createBGBGHeart, 800);
+        
+        // Generowanie unoszących się serduszek (animacja)
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerHTML = ['❤️', '💕', '🌸', '✨', '💝'][Math.floor(Math.random() * 5)];
+            
+            const left = Math.random() * window.innerWidth;
+            heart.style.left = left + 'px';
+            
+            const animationDuration = 3 + Math.random() * 2;
+            heart.style.animationDuration = animationDuration + 's';
+            
+            const fontSize = 1.5 + Math.random() * 2;
+            heart.style.fontSize = fontSize + 'em';
+            
+            document.body.appendChild(heart);
+            
+            setTimeout(() => {
+                heart.remove();
+            }, animationDuration * 1000);
+        }
+
+        // Tworzenie serduszek co 250ms
+        setInterval(createHeart, 250);
+
+        // Easter Egg - ukryte serduszka aktywują się po kliknięciu w strefy
+        function activateEaster(icon, message) {
+            const heart = document.createElement('div');
+            heart.classList.add('easter-heart', icon);
+            heart.style.left = '50%';
+            heart.style.top = '50%';
+            
+            document.body.appendChild(heart);
+            
+            setTimeout(() => {
+                // Animacja kaskadowych serduszek
+                for (let i = 0; i < 20; i++) {
+                    setTimeout(() => {
+                        createCascadeHeart();
+                    }, i * 50);
+                }
+            }, 800);
+        }
+
+        function createCascadeHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('cascade-heart');
+            heart.style.left = '50%';
+            heart.style.top = '50%';
+            
+            const leftOffset = (Math.random() - 0.5) * 40;
+            heart.style.left = `calc(50% + ${leftOffset}px)`;
+            
+            heart.innerHTML = ['❤️', '💕', '🌸'][Math.floor(Math.random() * 3)];
+            heart.style.fontSize = (1.5 + Math.random() * 1) + 'em';
+            
+            document.body.appendChild(heart);
+            
+            setTimeout(() => {
+                heart.remove();
+            }, 1500);
+        }
+
+        // Kliknięcie w dowolne miejsce tworzy serduszko
+        document.addEventListener('click', (e) => {
+            if (e.target.closest('.section') || e.target.closest('header')) return;
+            
+            const heart = document.createElement('div');
+            heart.classList.add('click-heart');
+            heart.style.left = e.clientX + 'px';
+            heart.style.top = e.clientY + 'px';
+            
+            heart.innerHTML = ['❤️', '💕', '🌸', '✨'][Math.floor(Math.random() * 4)];
+            heart.style.fontSize = (1.5 + Math.random()) + 'em';
+            
+            document.body.appendChild(heart);
+            
+            setTimeout(() => {
+                heart.remove();
+            }, 1500);
+        });
+
+        // Easter Egg - ruch myszką aktywuje serduszka w strefach
+        document.addEventListener('mousemove', (e) => {
+            const zones = ['heart1', 'heart2', 'heart3', 'heart4'];
+            
+            zones.forEach((zone, index) => {
+                const zoneElement = document.getElementById(zone);
+                if (e.clientX > zoneElement.offsetLeft && 
+                    e.clientX < zoneElement.offsetLeft + zoneElement.offsetWidth &&
+                    e.clientY > zoneElement.offsetTop && 
+                    e.clientY < zoneElement.offsetTop + zoneElement.offsetHeight) {
+                    
+                    // Aktywuj strefę po 3 sekundach bycia w zasięgu
+                    if (!zoneElement.dataset.active) {
+                        setTimeout(() => {
+                            if (zoneElement) {
+                                activateEaster(icons[index], messages[index]);
+                                zoneElement.dataset.active = 'true';
+                            }
+                        }, 2000);
+                    }
+                }
+            });
+        });
+
+        const icons = ['💕', '🌸', '💝', '✨'];
+        const messages = [
+            'Kochana Vanessa, gdzieś tutaj ukryłem moje serce... ❤️',
+            'Twoje uśmiech rozświetla cały mój świat! ✨',
+            'Dzięki Tobie każdy dzień jest magiczny! 💫',
+            'Jesteś moją największą przygodą! 🎉'
+        ];
+
+        // Inicjalizacja tła
+        setTimeout(() => {
+            for (let i = 0; i < 8; i++) {
+                setTimeout(createBGBGHeart, i * 1000);
+            }
+        }, 500);
+
+        console.log('💕 Dla Ciebie, Vanessa - Twoja strona miłości 💕');
+        console.log('🎵 Muzyka w tle: romanticzna piosenka o miłości z pliku music.mp3 🎵');
+    </script>
+</body>
+</html>
